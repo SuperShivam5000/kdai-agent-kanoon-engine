@@ -21,7 +21,9 @@ def clean_search_query_response(raw_json_str):
                 "author": doc.get("author"),
                 "summary": doc.get("headline", "").replace("\n", " ").replace("\\n", " ").strip()
             })
-        return cleaned_docs
+        return {
+            "docs": cleaned_docs  # wrap it here
+        }
     except Exception as e:
         return {"error": str(e)}
 
