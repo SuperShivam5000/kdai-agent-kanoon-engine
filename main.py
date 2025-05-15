@@ -46,6 +46,10 @@ class SearchQueryRequest(BaseModel):
 class SearchDocumentRequest(BaseModel):
     DocumentID: str
 
+@app.get("/")
+def root():
+    return {"message": "Kanoon Engine is awake!"}
+
 @app.post("/searchQuery")
 def search_query(req: SearchQueryRequest):
     try:
