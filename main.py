@@ -44,7 +44,7 @@ class SearchQueryRequest(BaseModel):
     pageNo: int
 
 class SearchDocumentRequest(BaseModel):
-    DocumentID: str
+    documentID: str
 
 @app.get("/")
 def root():
@@ -61,7 +61,7 @@ def search_query(req: SearchQueryRequest):
 @app.post("/searchDocument")
 def search_document(req: SearchDocumentRequest):
     try:
-        result = ikapi_client.fetch_doc(int(req.DocumentID))
+        result = ikapi_client.fetch_doc(int(req.documentID))
         return clean_search_document_response(result)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

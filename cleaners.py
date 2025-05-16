@@ -14,7 +14,7 @@ def clean_search_query_response(raw_json_str):
         cleaned_docs = []
         for doc in data.get("docs", []):
             cleaned_docs.append({
-                "id": doc.get("tid"),
+                "documentID": doc.get("tid"),
                 "title": doc.get("title"),
                 "date": doc.get("publishdate"),
                 "court": doc.get("docsource"),
